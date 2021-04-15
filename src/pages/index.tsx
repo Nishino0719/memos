@@ -1,7 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
-  const [count, setCount] = useState(0)
+  const [displayCount, setDisplayCount] = useState(0)
+  function customValue(str: string) {
+    let replacedString = str.replace(/\s+/g, '')
+    setDisplayCount(replacedString.length)
+  }
   return (
     <>
       <div className="w-screen h-screen bg-gray-100 ">
@@ -10,11 +14,13 @@ export default function Home() {
             name="dada"
             id=""
             placeholder={'メモ'}
-            className={'p-2 text-md border rounded-lg resize w-10/12 h-40'}
-            onChange={(e) => setCount(e.target.value.length)}
+            className={
+              'p-2 text-md border rounded-lg resize w-10/12 h-40 shadow-lg'
+            }
+            onChange={(e) => customValue(e.target.value)}
             autoFocus={true}
           ></textarea>
-          <p className={'ml-10 text-lg font-semibold'}>count: {count}</p>
+          <p className={'ml-10 text-lg font-semibold'}>count: {displayCount}</p>
         </div>
       </div>
     </>
