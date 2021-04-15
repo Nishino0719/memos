@@ -1,13 +1,12 @@
 {
-	"name":				"",
-	"short_name":		"",
-	"description":		"",
+	"name":				"Memos",
+	"short_name":		"Memos",
+	"description":		"文字数カウント付きメモ帳",
 	"start_url":		"/",
 	"display":			"standalone",
 	"orientation":		"any",
 	"background_color":	"#fff",
 	"theme_color":		"#fff",
-	"orientation":		"any",
 	"icons": [
 		{
 			"src": "/android-chrome-36x36.png",
