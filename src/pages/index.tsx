@@ -14,13 +14,13 @@ export default function Home() {
         <p className={'text-2xl font-semibold text-center mt-10 '}>
           現在の文字数: {displayCount}文字
         </p>
-        <div className="m-2 text-center lg:m-10 md:m-5">
+        <div className="pt-4 text-center lg:m-10 md:m-5">
           <textarea
             name="dada"
             id=""
             placeholder={'メモ'}
             className={
-              'p-2  text-md lg:text-lg xl:text-2ddddddxl border rounded-lg resize w-10/12 h-40 shadow-lg select-all'
+              'p-5 text-md lg:text-lg border rounded-lg resize w-10/12 h-96 lg:h-textarea shadow-lg select-all'
             }
             value={value}
             onChange={(e) => customValue(e.target.value)}
