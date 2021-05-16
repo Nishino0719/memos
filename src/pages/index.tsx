@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 export default function Home() {
-  const [value, setValue] = useState('')
-  const [displayCount, setDisplayCount] = useState(0)
+  const [value, setValue] = useState<string>('')
+  const [displayCount, setDisplayCount] = useState<number>(0)
   function customValue(str: string) {
     setValue(str)
     let replacedString = str.replace(/\s+/g, '')
