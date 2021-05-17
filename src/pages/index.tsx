@@ -3,7 +3,9 @@ import { useState } from 'react'
 export default function Home() {
   const [value, setValue] = useState<string>('')
   const [displayCount, setDisplayCount] = useState<number>(0)
+  const [canReset, setCanReset] = useState<boolean>(false)
   function customValue(str: string) {
+    setCanReset(true)
     setValue(str)
     let replacedString = str.replace(/\s+/g, '')
     setDisplayCount(replacedString.length)
@@ -38,8 +40,10 @@ export default function Home() {
               if (displayCount != 0) {
                 setValue('')
                 setDisplayCount(0)
+                setCanReset(false)
               }
             }}
+            disabled={canReset}
           >
             リセット
           </button>
