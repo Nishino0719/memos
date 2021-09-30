@@ -6,8 +6,6 @@ export default function Home() {
   const [canReset, setCanReset] = useState<boolean>(false)
 
   const handleCopy = () => {
-    console.log('hello world')
-    console.log(value)
     navigator.clipboard.writeText(value)
   }
 
