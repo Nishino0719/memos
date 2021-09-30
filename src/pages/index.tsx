@@ -4,6 +4,13 @@ export default function Home() {
   const [value, setValue] = useState<string>('')
   const [displayCount, setDisplayCount] = useState<number>(0)
   const [canReset, setCanReset] = useState<boolean>(false)
+
+  const handleCopy = () => {
+    console.log('hello world')
+    console.log(value)
+    navigator.clipboard.writeText(value)
+  }
+
   function customValue(str: string) {
     setCanReset(true)
     setValue(str)
@@ -29,9 +36,9 @@ export default function Home() {
             autoFocus={true}
           ></textarea>
         </div>
-        <div className="text-center ">
+        <div className="grid grid-cols-1 text-center md:grid-cols-2 ">
           <button
-            className={`font-nomal rounded-md p-4 bg-white ${
+            className={`font-nomal mx-20 my-5 rounded-md p-4 bg-white ${
               displayCount == 0
                 ? ' shadow-inner cursor-not-allowed'
                 : ' shadow-md transform hover:scale-110 duration-300'
@@ -45,7 +52,18 @@ export default function Home() {
             }}
             disabled={canReset}
           >
-            リセット
+            RESET
+          </button>
+          <button
+            className={`font-nomal mx-20 my-5 rounded-md p-4 bg-white ${
+              displayCount == 0
+                ? ' shadow-inner cursor-not-allowed'
+                : ' shadow-md transform hover:scale-110 duration-300'
+            }`}
+            onClick={handleCopy}
+            disabled={canReset}
+          >
+            COPY
           </button>
         </div>
       </div>
