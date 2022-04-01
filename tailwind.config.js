@@ -1,14 +1,11 @@
 module.exports = {
-  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'media', // 'media' or 'class'
+  content: ['./pages/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
-      colors: { 'accent-1': '#333' },
       height: {
         textarea: '30rem'
       }
     }
   },
-  variants: { extend: {} },
   plugins: []
 }
