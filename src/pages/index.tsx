@@ -30,7 +30,7 @@ export default function Home() {
             id=""
             placeholder={'メモ'}
             className={
-              'p-5 text-md lg:text-lg border rounded-lg resize w-10/12 h-96 lg:h-textarea shadow-lg select-all'
+              'p-5 text-md lg:text-lg border rounded-lg resize-none w-10/12 h-96 lg:h-textarea shadow-lg select-all'
             }
             value={value}
             onChange={(e) => customValue(e.target.value)}
@@ -39,6 +39,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 text-center md:grid-cols-2 ">
           <button
+            id="reset"
             className={`font-nomal mx-20 my-5 rounded-md p-4 bg-white ${
               displayCount == 0
                 ? ' shadow-inner cursor-not-allowed'
@@ -57,11 +58,12 @@ export default function Home() {
           </button>
           <CopyToClipboard
             onCopy={() => {
-              toast.custom((toast) => <Notification t={toast} />)
+              toast.custom((toast) => <Notification value={value} t={toast} />)
             }}
             text={value}
           >
             <button
+              id="copy"
               className={`font-nomal mx-20 my-5 rounded-md p-4 bg-white ${
                 displayCount == 0
                   ? ' shadow-inner cursor-not-allowed'

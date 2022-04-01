@@ -5,9 +5,10 @@ import toast from 'react-hot-toast'
 
 type Props = {
   t: Toast
+  value: string
 }
 
-export const Notification = ({ t }: Props) => {
+export const Notification = ({ t, value }: Props) => {
   return (
     <>
       <div
@@ -29,10 +30,7 @@ export const Notification = ({ t }: Props) => {
                   <p className="text-sm font-medium text-gray-900">
                     コピーされました！
                   </p>
-                  <p className="mt-1 text-sm text-gray-500">
-                    アプリは閉じてもテキストエリアの内容はLocal
-                    Storageに保存されます。
-                  </p>
+                  <p className="mt-1 text-sm text-gray-500">{value}</p>
                 </div>
                 <div className="flex flex-shrink-0 ml-4">
                   <button
