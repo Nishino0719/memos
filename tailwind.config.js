@@ -2,6 +2,13 @@ module.exports = {
   content: ['./pages/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      backgroundImage: {
+        'graph-black':
+          'radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px)'
+      },
+      backgroundSize: {
+        'size-40': '40px 40px'
+      },
       height: {
         textarea: '30rem'
       },
