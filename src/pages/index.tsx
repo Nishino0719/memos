@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import toast from 'react-hot-toast'
+import { Notification } from '../component/Notification'
 
 export default function Home() {
   const [value, setValue] = useState<string>('')
@@ -52,17 +55,23 @@ export default function Home() {
           >
             RESET
           </button>
-          <button
-            className={`font-nomal mx-20 my-5 rounded-md p-4 bg-white ${
-              displayCount == 0
-                ? ' shadow-inner cursor-not-allowed'
-                : ' shadow-md transform hover:scale-110 duration-300'
-            }`}
-            onClick={handleCopy}
-            disabled={canReset}
+          <CopyToClipboard
+            onCopy={() => {
+              toast.custom((toast) => <Notification t={toast} />)
+            }}
+            text={value}
           >
-            COPY
-          </button>
+            <button
+              className={`font-nomal mx-20 my-5 rounded-md p-4 bg-white ${
+                displayCount == 0
+                  ? ' shadow-inner cursor-not-allowed'
+                  : ' shadow-md transform hover:scale-110 duration-300'
+              }`}
+              disabled={!canReset}
+            >
+              COPY
+            </button>
+          </CopyToClipboard>
         </div>
       </div>
     </>
